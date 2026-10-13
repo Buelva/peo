@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificado de Amor 💍</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Librerías para generar el PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ==================================================
+         PANTALLA 1
+    ================================================== -->
+
+    <section id="pantalla1" class="pantalla activa">
+
+        <div class="corazones">
+            ❤️ 💗 ❤️
+        </div>
+
+        <h1>TE AMO</h1>
+
+        <p class="frase-principal">
+            Y no es un simple "te amo"...<br>
+            es un <strong>TE AMO</strong> de esos que no caben en un mensaje.
+        </p>
+
+        <button onclick="iniciar100MilTeAmo()">
+            💗 DEMOSTRARLO
+        </button>
+
+    </section>
+
+
+    <!-- ==================================================
+         PANTALLA 100.000 TE AMO
+    ================================================== -->
+
+    <section id="pantallaTeAmo" class="pantalla">
+
+        <div class="contador-amor">
+
+            <p>MI NIVEL DE AMOR POR TI:</p>
+
+            <h2 id="contadorTeAmo">0</h2>
+
+            <span>TE AMO ❤️</span>
+
+        </div>
+
+        <div id="lluviaTeAmo"></div>
+
+        <button
+            id="botonDespuesTeAmo"
+            onclick="irRegistro()"
+            class="oculto">
+
+            💍 CONTINUAR
+
+        </button>
+
+    </section>
+
+
+    <!-- ==================================================
+         REGISTRO
+    ================================================== -->
+
+    <section id="pantalla2" class="pantalla">
+
+        <div class="registro">
+
+            <div class="encabezado-registro">
+
+                <span class="numero-pregunta">
+                    REGISTRO #001
+                </span>
+
+                <h1>
+                    💍 REGISTRO DE MATRIMONIO
+                </h1>
+
+                <p class="subtitulo">
+                    Antes de continuar, el sistema necesita
+                    comprobar algunas cosas...
+                </p>
+
+                <p class="advertencia">
+                    ⚠️ Advertencia: responder estas preguntas
+                    podría confirmar que estás demasiado enamorado.
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PREGUNTA 1
+            ================================================== -->
+
+            <div class="pregunta">
+
+                <span class="numero-pregunta">
+                    PREGUNTA 01
+                </span>
+
+                <label>
+                    💌 ¿Cómo se llama el hombre que está a punto
+                    de cometer el error de casarse conmigo?
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Escribe tu nombre aquí..."
+                    autocomplete="off">
+
+                <button
+                    class="boton-continuar"
+                    onclick="validarNombre()">
+
+                    CONTINUAR ➜
+
+                </button>
+
+                <p
+                    id="mensajeNombre"
+                    class="mensaje-interaccion">
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PREGUNTA 2
+            ================================================== -->
+
+            <div
+                id="preguntaNivel"
+                class="pregunta bloque-oculto">
+
+                <span class="numero-pregunta">
+                    PREGUNTA 02
+                </span>
+
+                <label>
+                    ❤️ ¿Cuánto me amas?
+                </label>
+
+                <div class="opciones">
+
+                    <button
+                        onclick="seleccionarNivel('Muchísimo ❤️', this)">
+                        Muchísimo ❤️
+                    </button>
+
+                    <button
+                        onclick="seleccionarNivel('Demasiado 😍', this)">
+                        Demasiado 😍
+                    </button>
+
+                    <button
+                        onclick="seleccionarNivel('Más de lo que admito 😌', this)">
+                        Más de lo que admito 😌
+                    </button>
+
+                    <button
+                        onclick="seleccionarNivel('No sé, pero aquí estoy 😂', this)">
+                        No sé, pero aquí estoy 😂
+                    </button>
+
+                </div>
+
+                <p
+                    id="mensajeNivel"
+                    class="mensaje-interaccion">
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PREGUNTA 3
+            ================================================== -->
+
+            <div
+                id="preguntaAmor"
+                class="pregunta bloque-oculto">
+
+                <span class="numero-pregunta">
+                    PREGUNTA 03
+                </span>
+
+                <label>
+                    😂 Seamos honestos... ¿quién ama más?
+                </label>
+
+                <div class="opciones">
+
+                    <button
+                        onclick="seleccionarAmor('Yo 😎', this)">
+                        Yo 😎
+                    </button>
+
+                    <button
+                        onclick="seleccionarAmor('Tú ❤️', this)">
+                        Tú ❤️
+                    </button>
+
+                    <button
+                        onclick="seleccionarAmor('Los dos 🥰', this)">
+                        Los dos 🥰
+                    </button>
+
+                    <button
+                        onclick="seleccionarAmor('La que está haciendo este certificado 😂', this)">
+                        La que está haciendo este certificado 😂
+                    </button>
+
+                </div>
+
+                <p
+                    id="mensajeAmor"
+                    class="mensaje-interaccion">
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PREGUNTA 4
+            ================================================== -->
+
+            <div
+                id="preguntaMando"
+                class="pregunta bloque-oculto">
+
+                <span class="numero-pregunta">
+                    PREGUNTA 04
+                </span>
+
+                <label>
+                    👑 Pregunta delicada... ¿quién manda aquí?
+                </label>
+
+                <div class="opciones">
+
+                    <button
+                        onclick="seleccionarMando('Danilo 😎', this)">
+                        Danilo 😎
+                    </button>
+
+                    <button
+                        onclick="seleccionarMando('Esthefany 👑', this)">
+                        Esthefany 👑
+                    </button>
+
+                    <button
+                        onclick="seleccionarMando('El que tenga la razón 😂', this)">
+                        El que tenga la razón 😂
+                    </button>
+
+                    <button
+                        onclick="seleccionarMando('Nadie, somos independientes 😌', this)">
+                        Nadie, somos independientes 😌
+                    </button>
+
+                </div>
+
+                <p
+                    id="mensajeMando"
+                    class="mensaje-interaccion">
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PREGUNTA 5
+            ================================================== -->
+
+            <div
+                id="preguntaPelea"
+                class="pregunta bloque-oculto">
+
+                <span class="numero-pregunta">
+                    PREGUNTA 05
+                </span>
+
+                <label>
+                    🚨 En caso de discusión,
+                    ¿cuál será el procedimiento oficial?
+                </label>
+
+                <div class="opciones">
+
+                    <button
+                        onclick="seleccionarPelea('Hablarlo ❤️', this)">
+                        Hablarlo ❤️
+                    </button>
+
+                    <button
+                        onclick="seleccionarPelea('Pedir perdón 😌', this)">
+                        Pedir perdón 😌
+                    </button>
+
+                    <button
+                        onclick="seleccionarPelea('Dar comida y esperar 😂', this)">
+                        Dar comida y esperar 😂
+                    </button>
+
+                    <button
+                        onclick="seleccionarPelea('Abrazarnos hasta que se nos olvide', this)">
+                        Abrazarnos hasta que se nos olvide
+                    </button>
+
+                </div>
+
+                <p
+                    id="mensajePelea"
+                    class="mensaje-interaccion">
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PREGUNTA 6
+            ================================================== -->
+
+            <div
+                id="preguntaDistancia"
+                class="pregunta bloque-oculto">
+
+                <span class="numero-pregunta">
+                    PREGUNTA 06
+                </span>
+
+                <label>
+                    🗺️ Si aparece la distancia,
+                    ¿qué hacemos?
+                </label>
+
+                <div class="opciones">
+
+                    <button
+                        onclick="seleccionarDistancia('Esperarnos ❤️', this)">
+                        Esperarnos ❤️
+                    </button>
+
+                    <button
+                        onclick="seleccionarDistancia('Hablar todos los días 📱', this)">
+                        Hablar todos los días 📱
+                    </button>
+
+                    <button
+                        onclick="seleccionarDistancia('No rendirnos 💗', this)">
+                        No rendirnos 💗
+                    </button>
+
+                    <button
+                        onclick="seleccionarDistancia('Las tres anteriores 😌', this)">
+                        Las tres anteriores 😌
+                    </button>
+
+                </div>
+
+                <p
+                    id="mensajeDistancia"
+                    class="mensaje-interaccion">
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PREGUNTA 7
+            ================================================== -->
+
+            <div
+                id="preguntaComida"
+                class="pregunta bloque-oculto">
+
+                <span class="numero-pregunta">
+                    PREGUNTA 07
+                </span>
+
+                <label>
+                    🍕 Una decisión que podría definir
+                    nuestro matrimonio...
+                    <br>
+                    ¿qué comida vamos a compartir?
+                </label>
+
+                <div class="opciones">
+
+                    <button
+                        onclick="seleccionarComida('Pizza 🍕', this)">
+                        Pizza 🍕
+                    </button>
+
+                    <button
+                        onclick="seleccionarComida('Hamburguesa 🍔', this)">
+                        Hamburguesa 🍔
+                    </button>
+
+                    <button
+                        onclick="seleccionarComida('Lo que sea, pero juntos ❤️', this)">
+                        Lo que sea, pero juntos ❤️
+                    </button>
+
+                    <button
+                        onclick="seleccionarComida('Primero tú invitas 😂', this)">
+                        Primero tú invitas 😂
+                    </button>
+
+                </div>
+
+                <p
+                    id="mensajeComida"
+                    class="mensaje-interaccion">
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PROMESA
+            ================================================== -->
+
+            <div
+                id="preguntaPromesa"
+                class="pregunta bloque-oculto">
+
+                <span class="numero-pregunta">
+                    PREGUNTA 08
+                </span>
+
+                <label>
+                    💌 Escribe una pequeña promesa para Esthefany.
+                </label>
+
+                <p class="ayuda-escritura">
+                    No vale escribir solamente "te amo".
+                    El sistema necesita pruebas. 👀😂
+                </p>
+
+                <textarea
+                    id="promesa"
+                    placeholder="Prometo que..."
+                    maxlength="500"></textarea>
+
+                <button
+                    class="boton-continuar"
+                    onclick="guardarPromesa()">
+
+                    GUARDAR PROMESA 💍
+
+                </button>
+
+                <p
+                    id="mensajePromesa"
+                    class="mensaje-interaccion">
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 MENSAJE ESPECIAL
+            ================================================== -->
+
+            <div
+                id="preguntaMensaje"
+                class="pregunta bloque-oculto">
+
+                <span class="numero-pregunta">
+                    PREGUNTA 09 — ÚLTIMA
+                </span>
+
+                <label>
+                    💗 Escribe algo que quieras decirme.
+                </label>
+
+                <p class="ayuda-escritura">
+                    Advertencia: este mensaje podría provocar
+                    sonrisas, abrazos y posiblemente lágrimas. 🥹❤️
+                </p>
+
+                <textarea
+                    id="mensajeEspecial"
+                    placeholder="Escribe aquí algo para mí... ❤️"
+                    maxlength="800"></textarea>
+
+                <button
+                    class="boton-continuar"
+                    onclick="guardarMensaje()">
+
+                    GUARDAR MENSAJE 💌
+
+                </button>
+
+                <p
+                    id="mensajeEspecialAviso"
+                    class="mensaje-interaccion">
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 DECLARACIÓN FINAL
+            ================================================== -->
+
+            <div
+                id="declaracionFinal"
+                class="declaracion-final bloque-oculto">
+
+                <span class="numero-pregunta">
+                    ⚠️ DECLARACIÓN FINAL
+                </span>
+
+                <h2>
+                    Llegaste demasiado lejos...
+                </h2>
+
+                <p>
+                    Después de responder todas estas preguntas,
+                    el sistema ha determinado que existe una
+                    cantidad sospechosamente alta de amor
+                    entre ambas partes.
+                </p>
+
+                <p>
+                    <strong>
+                        ¿Aceptas continuar con este matrimonio simbólico?
+                    </strong>
+                </p>
+
+
+                <div class="botones-decision">
+
+                    <button
+                        id="botonNo"
+                        class="boton-no"
+                        onclick="escaparBoton()">
+
+                        ❌ NO
+
+                    </button>
+
+                    <button
+                        id="botonSi"
+                        class="boton-si"
+                        onclick="aceptar()">
+
+                        💍 SÍ, ACEPTO
+
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="mensajeAceptado"
+                    class="mensaje-aceptado oculto">
+
+                    💍 ¡ACEPTADO!
+
+                    <br><br>
+
+                    Danilo ha aceptado oficialmente.
+
+                    <br>
+
+                    Ya no hay vuelta atrás.
+
+                    <br>
+
+                    Bueno... técnicamente sí,
+                    pero no queremos hablar de eso. 😂❤️
+
+                </p>
+
+
+                <button
+                    id="botonCertificado"
+                    class="boton-certificado oculto"
+                    onclick="crearCertificado()">
+
+                    📜 GENERAR MI CERTIFICADO
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         CERTIFICADO
+    ================================================== -->
+
+    <section id="pantalla3" class="pantalla">
+
+        <div class="certificado-contenedor">
+
+            <div id="certificadoPDF">
+
+
+                <!-- ==================================================
+                     PÁGINA 1
+                ================================================== -->
+
+                <div class="hoja-pdf pagina-certificado">
+
+                    <div class="borde-certificado">
+
+                        <div class="encabezado-certificado">
+
+                            <div class="simbolo-certificado">
+                                💍
+                            </div>
+
+                            <p class="mini-titulo">
+                                DOCUMENTO OFICIAL
+                            </p>
+
+                            <h1>
+                                CERTIFICADO DE MATRIMONIO
+                            </h1>
+
+                            <p>
+                                Registro oficial del amor
+                            </p>
+
+                        </div>
+
+
+                        <div class="numero-documento">
+                            N.º 000001
+                        </div>
+
+
+                        <div class="contenido-certificado">
+
+                            <p>
+                                Por medio del presente documento
+                                se deja constancia de que:
+                            </p>
+
+                            <h2 id="nombreFinal">
+                                Danilo
+                            </h2>
+
+                            <p>
+                                y
+                            </p>
+
+                            <h2>
+                                Esthefany
+                            </h2>
+
+                            <p>
+                                han decidido unir oficialmente
+                                sus corazones bajo los términos
+                                establecidos en este certificado.
+                            </p>
+
+
+                            <div class="datos-certificado">
+
+                                <div>
+                                    <span>
+                                        Estado del amor
+                                    </span>
+
+                                    <strong id="nivelFinal">
+                                        —
+                                    </strong>
+                                </div>
+
+
+                                <div>
+                                    <span>
+                                        Relación
+                                    </span>
+
+                                    <strong id="amorFinal">
+                                        —
+                                    </strong>
+                                </div>
+
+
+                                <div>
+                                    <span>
+                                        Quién manda
+                                    </span>
+
+                                    <strong id="mandoFinal">
+                                        —
+                                    </strong>
+                                </div>
+
+
+                                <div>
+                                    <span>
+                                        Protocolo de discusión
+                                    </span>
+
+                                    <strong id="peleaFinal">
+                                        —
+                                    </strong>
+                                </div>
+
+
+                                <div>
+                                    <span>
+                                        Distancia
+                                    </span>
+
+                                    <strong id="distanciaFinal">
+                                        —
+                                    </strong>
+                                </div>
+
+
+                                <div>
+                                    <span>
+                                        Comida oficial
+                                    </span>
+
+                                    <strong id="comidaFinal">
+                                        —
+                                    </strong>
+                                </div>
+
+                            </div>
+
+
+                            <div class="texto-legal">
+
+                                <p>
+                                    Este certificado representa
+                                    un compromiso simbólico basado
+                                    en amor, respeto, confianza,
+                                    paciencia y compañerismo.
+                                </p>
+
+                                <p>
+                                    Su validez depende exclusivamente
+                                    de dos personas que deciden
+                                    seguir eligiéndose cada día.
+                                </p>
+
+                            </div>
+
+
+                            <div class="firmas">
+
+                                <div class="firma">
+
+                                    <div class="linea-firma"></div>
+
+                                    <strong>
+                                        Esthefany
+                                    </strong>
+
+                                    <span>
+                                        Contrayente
+                                    </span>
+
+                                </div>
+
+
+                                <div class="firma">
+
+                                    <div class="linea-firma"></div>
+
+                                    <strong id="firmaDanilo">
+                                        Danilo
+                                    </strong>
+
+                                    <span>
+                                        Contrayente
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="sello">
+
+                                ❤️
+
+                                <span>
+                                    AMOR<br>
+                                    VERIFICADO
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pie-certificado">
+
+                            <span>
+                                Documento simbólico
+                            </span>
+
+                            <span>
+                                Esthefany & Danilo ❤️
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================================
+                     PÁGINA 2
+                ================================================== -->
+
+                <div class="hoja-pdf pagina-mensajes">
+
+                    <div class="borde-mensaje">
+
+                        <div class="encabezado-mensaje">
+
+                            <div class="corazon-grande">
+                                ❤️
+                            </div>
+
+                            <h1>
+                                NUESTRA PROMESA
+                            </h1>
+
+                            <p>
+                                Porque un certificado no estaría
+                                completo sin decir lo que realmente
+                                importa.
+                            </p>
+
+                        </div>
+
+
+                        <!-- PROMESA ESCRITA POR DANILO -->
+
+                        <div class="promesa">
+
+                            <h2>
+                                💍 PROMESA DE DANILO
+                            </h2>
+
+                            <div
+                                id="promesaFinal"
+                                class="texto-escrito">
+
+                                —
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MENSAJE ESCRITO POR DANILO -->
+
+                        <div class="mensaje-especial">
+
+                            <h2>
+                                💌 MENSAJE ESPECIAL
+                            </h2>
+
+                            <div
+                                id="mensajeEspecialFinal"
+                                class="texto-escrito">
+
+                                —
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MENSAJE DE ESTHEFANY -->
+
+                        <div class="mensaje-esthefany">
+
+                            <h2>
+                                ❤️ PARA TI
+                            </h2>
+
+                            <p>
+                                MI AMOR, quizá este documento no tenga
+                                valor legal, pero para mí tiene algo
+                                mucho más importante: representa todo
+                                lo que siento por ti.
+                            </p>
+
+                            <p>
+                                No importa la distancia, los días
+                                difíciles ni todo lo que pueda pasar.
+                                Quiero seguir construyendo recuerdos
+                                contigo.
+                            </p>
+
+                            <p class="frase-final">
+                                Te amo hoy, mañana y en todos los días
+                                que todavía nos quedan por vivir. ❤️
+                            </p>
+
+                        </div>
+
+
+                        <div class="firma-final">
+
+                            <span>
+                                Con todo mi amor,
+                            </span>
+
+                            <strong>
+                                Esthefany ❤️
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTÓN FUERA DEL PDF -->
+
+            <button
+                class="boton-pdf"
+                onclick="descargarCertificado()">
+
+                📄 DESCARGAR CERTIFICADO PDF
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <script src="./script.js"></script>
+
+</body>
+</html>
